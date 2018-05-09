@@ -1,6 +1,6 @@
 /******************************************************************************
  *
- *  Copyright (C) 2015 NXP Semiconductors
+ *  Copyright (C) 2015-2018 NXP Semiconductors
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -70,6 +70,7 @@ tNFC_chipType capability::processChipType(uint8_t* msg, uint16_t msg_len) {
             case 0xA0 :
             case 0xA2 :
             case 0xA3 :
+            case 0xA4 :
                 chipType = sn100u;
                 break;
             default :

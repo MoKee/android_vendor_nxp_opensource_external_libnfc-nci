@@ -66,6 +66,10 @@ cc_library_shared {
         "vendor/nxp/opensource/external/libnfc-nci/extns/impl",
     ],
 
+    export_include_dirs: [
+        "inc",
+    ],
+
     shared_libs: [
         "android.hardware.nfc@1.0",
         "libbase",
