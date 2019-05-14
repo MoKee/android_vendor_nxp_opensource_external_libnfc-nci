@@ -1586,7 +1586,7 @@ tNFC_chipType NFC_GetChipType() {
 bool NFC_GetSemsResponseOutput(tNFA_DM_API_SEMS_TYPE type) {
   int ret = -1;
   nfc_nci_IoctlInOutData_t inpOutData;
-  uint32_t lengthOfoutResp = 0;
+  uint32_t lengthOfoutResp = 0, fw_ret = 0;
   int32_t remainingLen = 0;
 
   DLOG_IF(INFO, nfc_debug_enabled)
@@ -1630,8 +1630,8 @@ bool NFC_GetSemsResponseOutput(tNFA_DM_API_SEMS_TYPE type) {
            << StringPrintf("Error while reading sems output");
           break;
         }
-        ret = fwrite(&iOData.out.data.semsRsp.semsOutResp[0], 1, iOData.inp.data.semsCmd.semsLen, fIn);
-        if(ret != iOData.inp.data.semsCmd.semsLen) {
+        fw_ret = fwrite(&iOData.out.data.semsRsp.semsOutResp[0], 1, iOData.inp.data.semsCmd.semsLen, fIn);
+        if(fw_ret != iOData.inp.data.semsCmd.semsLen) {
           DLOG_IF(INFO, nfc_debug_enabled)
             << StringPrintf("Error while copying sems output");
           return false;
