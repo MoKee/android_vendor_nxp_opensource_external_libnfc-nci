@@ -108,7 +108,7 @@ bool ConfigValue::parseFromString(std::string in) {
 }
 
 void ConfigFile::addConfig(const std::string& key, ConfigValue& value) {
-  CHECK(!hasKey(key));
+  CHECK(!hasKey(key)) << "- key=" << key;
   values_.emplace(key, value);
 }
 
@@ -156,7 +156,7 @@ void ConfigFile::parseFromString(const std::string& config) {
 
     ConfigValue value;
     bool value_parsed = value.parseFromString(value_string);
-    CHECK(value_parsed);
+    CHECK(value_parsed) << "- key=" << key << ", value=\"" << value_string << "\"";
 
     if (cur_file_name_.find("nxpTransit") != std::string::npos) {
       if (updateConfig(key, value))
