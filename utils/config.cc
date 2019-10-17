@@ -103,7 +103,7 @@ bool ConfigValue::parseFromString(std::string in) {
 }
 
 void ConfigFile::addConfig(const std::string& key, ConfigValue& value) {
-  CHECK(!hasKey(key));
+  CHECK(!hasKey(key)) << "- key=" << key;
   values_.emplace(key, value);
 }
 
