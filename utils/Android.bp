@@ -32,7 +32,7 @@ cc_library_static {
 }
 
 cc_test {
-    name: "nqnfc_test_utils",
+    name: "nqnfc_test_utils_8150",
     defaults: ["nqnfc_utils_defaults"],
     test_suites: ["device-tests"],
     host_supported: true,
